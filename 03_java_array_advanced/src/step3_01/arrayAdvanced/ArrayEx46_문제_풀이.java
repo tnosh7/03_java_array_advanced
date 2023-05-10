@@ -31,218 +31,76 @@ public class ArrayEx46_문제_풀이 {
 		int p2X = 0;	int p2Y = 0;
 		
 		// me 셋팅
-		for(int i = 0; i < temp.length; i++) {
-			temp[i] = ran.nextInt(size) + 1;
-			for(int j = 0; j < i; j++) {
-				if(temp[i] == temp[j]) {
+		for (int i = 0; i < temp.length; i++) {
+			temp[i] = ran.nextInt(size) + 1 ;
+			for (int j = 0; j < i; j++) {
+				if (temp[i]==temp[j]) {
 					i--;
 				}
 			}
 		}
+		
 		int k = 0;
-		for(int i = 0; i < maxNum; i++) {
-			for(int j = 0; j < maxNum; j++) {
+		for (int i = 0; i < maxNum; i++) {
+			for (int j = 0; j < maxNum; j++) {
 				me[i][j] = temp[k];
 				k++;
 			}
 		}
 		
 		// you 셋팅
-		for(int i = 0; i < temp.length; i++) {
-			temp[i] = ran.nextInt(size) + 1;
-			for(int j = 0; j < i; j++) {
+		for (int i = 0; i < temp.length; i++) {
+			temp[i] = ran.nextInt(size) +1;
+			for (int j = 0; j < i; j++) {
 				if(temp[i] == temp[j]) {
 					i--;
 				}
 			}
 		}
 		k = 0;
-		for(int i = 0; i < maxNum; i++) {
-			for(int j = 0; j < maxNum; j++) {
+		
+		for (int i = 0; i < maxNum; i++) {
+			for (int j = 0; j < maxNum; j++) {
 				you[i][j] = temp[k];
 				k++;
 			}
 		}
 		
-		
-		
+		//문제 출력 너나 
 		while (true) {
 			
-			System.out.println("========= BINGO GAME[Me] =========");
+			System.out.println("===빙고 게임===");
 			for (int i = 0; i < maxNum; i++) {
 				for (int j = 0; j < maxNum; j++) {
-					if (meMark[i][j] == 0) 			System.out.print(me[i][j] + "\t");
-					else if (meMark[i][j] == 1) 	System.out.print("O\t");
-				}
-				System.out.println();
-			}
-			System.out.println();
-			
-			System.out.println("========= BINGO GAME[You] =========");
-			k = 0;
-			for (int i = 0; i < maxNum; i++) {
-				for (int j = 0; j < maxNum; j++) {
-					if (youMark[i][j] == 0) 		System.out.print(you[i][j] + "\t");
-					else if (youMark[i][j] == 1) 	System.out.print("X\t");
-				}
-				System.out.println();
-			}
-			System.out.println();
-			
-			if (win == 1) {
-				System.out.println("Me 승리!");
-				break;
-			}
-			else if (win == 2) {
-				System.out.println("You 승리!");
-				break;
-			}
-			
-			if (turn % 2 == 0) {
-				
-				System.out.print("[Me]y좌표 입력 : ");
-				p1Y = scan.nextInt();
-				System.out.print("[Me]X좌표 입력 : ");
-				
-				p1X = scan.nextInt();
-				
-				if (meMark[p1Y][p1X] == 0) {
-					meMark[p1Y][p1X] = 1;
-					turn++;
-					
-					for (int i = 0; i < maxNum; i++) {
-						for (int j = 0; j < maxNum; j++) {
-							if (me[p1Y][p1X] == you[i][j]) {
-								if (youMark[i][j] == 0) {
-									youMark[i][j] = 1;
-								}
-							}
-						}
+					if(meMark[i][j]==0) {
+						System.out.print(i + "\t");
+					}
+					else if {	
+						System.out.println("O\t");
 					}
 				}
-				
-				
 			}
-			else if (turn % 2 == 1) {
-				
-				System.out.print("[You]y좌표 입력 : ");
-				p2Y = scan.nextInt();
-				System.out.print("[You]X좌표 입력 : ");
-				p2X = scan.nextInt();
-				
-				if (youMark[p2Y][p2X] == 0) {
-					youMark[p2Y][p2X] = 1;
-					turn++;
-					
-					for (int i = 0; i < maxNum; i++) {
-						for (int j = 0; j < maxNum; j++) {
-							if (you[p2Y][p2X] == me[i][j]) {
-								if (meMark[i][j] == 0) {
-									meMark[i][j] = 1;
-								}
-							}
-						}
-					}					
-				}
+			
+			for (int i = 0; i < maxNum; i++) {
+				System.out.print(i + "\t");
 			}
+			System.out.println("\t");
+		}
+		
+		//승리조건 출력 
+			
+		
+		
 			 
 			// 승패결정 가로 체크
-			for (int i = 0; i < maxNum; i++) {
-				int cnt = 0;
-				for (int j = 0; j < maxNum; j++) {
-					if (meMark[i][j] == 1) {
-						cnt++;
-					}
-				}
-				if (cnt == 5) {
-					win = 1;
-					break;
-				}
-			}
-			for (int i = 0; i < maxNum; i++) {
-				int cnt = 0;
-				for (int j = 0; j < maxNum; j++) {
-					if (youMark[i][j] == 1) {
-						cnt++;
-					}
-				}
-				if (cnt == 5) {
-					win = 2;
-					break;
-				}
-			}	
+			
 			
 			// 승패결정 세로 체크
-			for (int j = 0; j < maxNum; j++) {
-				int cnt = 0;
-				for (int i = 0; i < maxNum; i++) {
-					if (meMark[i][j] == 1) {
-						cnt++;
-					}
-				}
-				if (cnt == 5) {
-					win = 1;
-					break;
-				}
-			}
-			for (int j = 0; j < maxNum; j++) {
-				int cnt = 0;
-				for (int i = 0; i < maxNum; i++) {
-					if (youMark[i][j] == 1) {
-						cnt ++;
-					}
-				}
-				if (cnt == 5) {
-					win = 2;
-					break;
-				}
-			}
-			
+		
 			// 승패결정 대각선 체크
-			int cnt = 0;
-			for (int i = 0; i < maxNum; i++) {
-				if (meMark[i][i] == 1) {
-					cnt++;
-				}
-				if (cnt == 5) {
-					win = 1;
-					break;
-				}
-			}
-			cnt = 0;
-			for (int i = 0; i < maxNum; i++) {
-				if (youMark[i][i] == 1) {
-					cnt++;
-				}
-				if (cnt == 5) {
-					win = 2;
-					break;
-				}
-			}
-			
+						
 			// 승패결정 대각선 체크
-			cnt = 0;
-			for (int i = 0; i < maxNum; i++) {
-				if (meMark[i][(maxNum-1)-i] == 1) {
-					cnt++;
-				}
-				if (cnt == 5) {
-					win = 1;
-					break;
-				}
-			}
-			cnt = 0;
-			for (int i = 0; i < maxNum; i++) {
-				if (youMark[i][(maxNum-1)-i] == 1) {
-					cnt++;
-				}
-				if (cnt == 5) {
-					win = 2;
-					break;
-				}
-			}
-		}
-
+			
 	}
 
 }

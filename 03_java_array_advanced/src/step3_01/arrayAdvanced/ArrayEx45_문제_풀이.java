@@ -20,33 +20,34 @@ public class ArrayEx45_문제_풀이 {
 		int win = 0;
 		
 		// 중복을 제거한 랜덤숫자를 임시 저장
-		for (int i=0; i < temp.length; i++) {
-			temp[i] = ran.nextInt(size) + 1;
+		for (int i = 0; i < temp.length; i++) {
+			temp[i] = ran.nextInt(size) + 1; 
 			for (int j = 0; j < i; j++) {
 				if (temp[i] == temp[j]) {
 					i--;
-				}
 			}
 		}
-		
 		// 중복을 제거한 랜덤숫자를 빙고판에 대입
-		int k = 0;
-		for (int i = 0; i < maxNum; i++) {
+		int k = 0 ;
+		for (int l = 0; l < maxNum; l++) {
 			for (int j = 0; j < maxNum; j++) {
-				bingo[i][j] = temp[k];
+				bingo[l][j] = temp[k] ;
 				k++;
 			}
 		}
+	
+		//문제출력 
 		
-		
-		
-		while (true) {
-			System.out.println("=============== BINGO GAME ===============");
-			System.out.print("\t");
-			for (int i = 0; i < maxNum; i++) {
-				System.out.print(i + "\t");
+		while(true) {
+			System.out.println("===========BINGO GAME============");
+			System.out.println("\t");
+			
+			for (int j = 0; j < maxNum; j++) {
+				System.out.print(j + "\t");
 			}
-			System.out.println("\n");
+			System.out.println("\t");
+		
+			
 			for (int i = 0; i < maxNum; i++) {
 				System.out.print(i + "\t");
 				for (int j = 0; j < maxNum; j++) {
@@ -59,15 +60,16 @@ public class ArrayEx45_문제_풀이 {
 				}
 				System.out.println("\n");
 			}
-
+		//승리조건 
 			if (win == 1) {
 				System.out.println("게임종료");
 				break;
 			}
-			
-			System.out.print("y좌표 입력 : ");
+		//입력 
+			System.out.println("y 좌표입력 : ");
 			int meY = scan.nextInt();
-			System.out.print("x좌표 입력 : ");
+			
+			System.out.println("x 좌표입력 : ");
 			int meX = scan.nextInt();
 			
 			if (mark[meY][meX] == 0) {
@@ -75,24 +77,25 @@ public class ArrayEx45_문제_풀이 {
 			}
 			
 			// 가로검사
+		
 			for (int i = 0; i < maxNum; i++) {
 				int cnt = 0;
 				for (int j = 0; j < maxNum; j++) {
-					if (mark[i][j] == 1) {
+					if (mark[i][j] ==1) {
 						cnt++;
 					}
 				}
+				
 				if (cnt == 5) {
 					win = 1;
 					break;
 				}
 			}
-			
 			// 세로검사
 			for (int j = 0; j < maxNum; j++) {
 				int cnt = 0;
 				for (int i = 0; i < maxNum; i++) {
-					if (mark[i][j] == 1) {
+					if( mark[i][j] == 1 ) {
 						cnt++;
 					}
 				}
@@ -107,23 +110,37 @@ public class ArrayEx45_문제_풀이 {
 			for (int i = 0; i < maxNum; i++) {
 				if (mark[i][i] == 1) {
 					cnt++;
+					}
+				}
+				if (cnt == 5) {
+					win = 1;
+					break; 
 				}
 			}
-			if (cnt == 5) {
-				win = 1;
-			}
 			
-			cnt = 0;
-			for (int i = 0; i < maxNum; i++) {
-				if (mark[i][(maxNum-1)-i] == 1) {
+			int cnt =0;
+			for (int i = 0; i < maxNum; i++) {	//01234 43210
+				if(mark[i][(maxNum-1)-i] == 1 ) {
 					cnt++;
 				}
 			}
 			if (cnt == 5) {
 				win = 1;
+				
 			}
-			
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
 
 		scan.close();
 	}
