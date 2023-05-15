@@ -18,9 +18,9 @@ public class ArrayEx47_문제 {
 		final int GOAL = 7;
 		final int WALL = 9;
 		
-		int[][] map = new int[SIZE][SIZE];
+		int[][] map = new int[SIZE][SIZE];  //7 7 
 		
-		int wallCount = 0;
+		int wallCount = 0;					//벽 
 		int pY = 0;
 		int pX = 0;
 		int ballY = 0;
@@ -28,44 +28,44 @@ public class ArrayEx47_문제 {
 		int goalY = 0;
 		int goalX = 0;
 		
-		// 벽 설치
+		// 벽 설치										-벽 빼고 공, 골대, 벽 랜덤 이용
 		System.out.print(">>>설치할 벽의 개수를 입력하세요 : ");
-		wallCount = scan.nextInt();
+		wallCount = scan.nextInt();	
 		
-		int temp = wallCount;
+		int temp = wallCount;				//벽 임시저장 변수 
 		while (temp != 0) {
 			int rY = ran.nextInt(SIZE);
 			int rX = ran.nextInt(SIZE);
 			
-			if (map[rY][rX] == 0) {
-				map[rY][rX] = WALL;
-				temp = temp - 1;
+			if (map[rY][rX] == 0) {			//아무것도 없으면 
+				map[rY][rX] = WALL;			//벽세움 
+				temp = temp - 1;			//-1해줌 //반복 
 			}
 		}
 		
 		// 공 설치
 		while (true) {
-			int rY = ran.nextInt(SIZE - 2) + 1;
-			int rX = ran.nextInt(SIZE - 2) + 1;
+			int rY = ran.nextInt(SIZE - 2) + 1;		//1~5 
+			int rX = ran.nextInt(SIZE - 2) + 1;		//1~5
 			
-			if(map[rY][rX] == 0) {
-				map[rY][rX] = BALL;
-				ballY = rY;
-				ballX = rX;
+			if(map[rY][rX] == 0) {					//아무것도 없으면	
+				map[rY][rX] = BALL;					//볼 	
+				ballY = rY;							//볼 행 
+				ballX = rX;							//볼 열 
 				break;
 			}
 		}
 		
 		// 골대 설치
-		while (true) {
+		while (true) {							
 			int rY = ran.nextInt(SIZE);
 			int rX = ran.nextInt(SIZE);
 			
-			if (map[rY][rX] == 0) {
-				map[rY][rX] = GOAL;
-				goalY = rY;
-				goalX = rX;
-				break;
+			if (map[rY][rX] == 0) {					
+				map[rY][rX] = GOAL;				
+				goalY = rY;						
+				goalX = rX;	
+				break;	
 			}
 		}
 		
@@ -87,7 +87,7 @@ public class ArrayEx47_문제 {
 			pX = scan.nextInt();
 			
 			if (map[pY][pX] == 0) {
-				map[pY][pX] = PLAYER;
+				map[pY][pX] = PLAYER;					//
 				break;
 			}
 		}
@@ -127,12 +127,12 @@ public class ArrayEx47_문제 {
 			else if (move == 4) xx++;
 			
 			// 예외처리
-			if (SIZE <= xx || xx < 0) 					 	continue;
-			if (SIZE <= yy || yy < 0) 					 	continue;
-			if (map[yy][xx] == WALL || map[yy][xx] == GOAL) continue;
+			if (SIZE <= xx || xx < 0) 					 	continue;		//행 길이 초과 
+			if (SIZE <= yy || yy < 0) 					 	continue;		//열 길이 초과
+			if (map[yy][xx] == WALL || map[yy][xx] == GOAL) continue;		//벽이나 골 위치 
 			
 			// 공을 만나면
-			if (map[yy][xx] == BALL) {
+			if (map[yy][xx] == BALL) {				
 				int yyy = ballY;
 				int xxx = ballX;
 				if		(move == 1) yyy--;
@@ -143,7 +143,7 @@ public class ArrayEx47_문제 {
 				// 예외처리
 				if (SIZE <= xxx || xxx < 0) continue;
 				if (SIZE <= yyy || yyy < 0) continue;
-				if (map[yyy][xxx] == WALL)  continue;
+				if (map[yyy][xxx] == WALL)  continue;	//벽 
 				
 				// 공 이동시키기
 				map[ballY][ballX] = 0;
@@ -153,10 +153,10 @@ public class ArrayEx47_문제 {
 			}
 			
 			// 캐릭터 이동시키기
-			map[pY][pX] = 0;
-			pY = yy;
+			map[pY][pX] = 0;						//초기화 
+			pY = yy;								//대입 
 			pX = xx;
-			map[pY][pX] = PLAYER;
+			map[pY][pX] = PLAYER;					//2설정 
 			
 		}
 
