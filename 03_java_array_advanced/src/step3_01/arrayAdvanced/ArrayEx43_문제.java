@@ -3,7 +3,7 @@ package step3_01.arrayAdvanced;
 /*
  * # 달팽이
  * 
- * 1	2	3	4	5					
+ * 1	2	3	4	5	
  * 16	17	18	19	6	
  * 15	24	25	20	7	
  * 14	23	22	21	8	
@@ -17,7 +17,7 @@ package step3_01.arrayAdvanced;
  * 
  * 1)2)3)4) 반복
  */
-//
+
 
 public class ArrayEx43_문제 {
 
@@ -35,19 +35,19 @@ public class ArrayEx43_문제 {
 		map[y][x] = num;
 		check[y][x] = true;
 		
-		for(int i = 0; i < 24; i++) {			// 24 ? 25가 아니라 ? 
+		for(int i = 0; i < 24; i++) {
 			
-			int yy = y;							//행	
-			int xx = x;							//열
+			int yy = y;
+			int xx = x;
 			
-			if      (dir == 1)  xx = xx + 1;	//오	
-			else if (dir == 2)  yy = yy + 1;	//하
-			else if (dir == 3) 	xx = xx - 1;	//왼 
-			else if (dir == 4) 	yy = yy - 1;	//상
+			if      (dir == 1)  xx = xx + 1;
+			else if (dir == 2)  yy = yy + 1;
+			else if (dir == 3) 	xx = xx - 1;
+			else if (dir == 4) 	yy = yy - 1;
 			
-			if (size <= xx || xx < 0 || size <= yy || yy < 0 || check[yy][xx] == true) { //xx
+			if (size <= xx || xx < 0 || size <= yy || yy < 0 || check[yy][xx] == true) {
 				
-				dir = dir + 1;								
+				dir = dir + 1;
 				yy = y;
 				xx = x;
 				

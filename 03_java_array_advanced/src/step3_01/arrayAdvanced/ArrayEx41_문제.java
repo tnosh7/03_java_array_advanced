@@ -32,41 +32,41 @@ public class ArrayEx41_문제 {
 				{0,0,0,0,0}
 		};
 		
-		int x = 0; 												//
-		int y = 0; 
+		int x = 0; 
+		int y = 0;
 		
-		for (int i = 0; i < ladder.length; i++) {				//for문 사다리배열 길이 만큼 	
-			for (int j = 0; j < ladder[i].length; j++) {		// 특수문자 : ㅂ + 한자	// 2중배열
-				if (ladder[i][j] == 0) {						//사다리 ==> 0 일때 -> 막대ㅣㄱ
-					System.out.print(" │ ");					//	
+		for (int i = 0; i < ladder.length; i++) {
+			for (int j = 0; j < ladder[i].length; j++) {		// 특수문자 : ㅂ + 한자
+				if (ladder[i][j] == 0) {
+					System.out.print(" │ ");
 				}
-				else if (ladder[i][j] == 1) {					//1일떄
-					if (j != 0 && ladder[i][j-1] == 1) {		//열이 0이 아니거나ㅏ -1한 값이 1일때  
-						System.out.print("─┤ ");//-1??? 왜하ㅣ징? =>맨마지막행은 작대기만 나옴 .
+				else if (ladder[i][j] == 1) {
+					if (j != 0 && ladder[i][j-1] == 1) {
+						System.out.print("─┤ ");
 					}
-					else if (j != ladder[i].length - 1 && ladder[i][j+1] == 1){	//열이 사다리 행길이가 아닐때 -1한값 + 1한값= 1
-						System.out.print(" ├─");				//j+1?? 			
+					else if (j != ladder[i].length - 1 && ladder[i][j+1] == 1){
+						System.out.print(" ├─");
 					}
 				}
 			}
 			System.out.println();
 		}
-		//여기까지 문제 만들기 . 
-		System.out.print("0~4 입력 : ");			//입력 
-		x = scan.nextInt();							
+
+		System.out.print("0~4 입력 : ");
+		x = scan.nextInt();
 		
-		for (int i = 0; i < ladder.length; i++) {		//x y 구분 잘하기	
-			if (ladder[y][x] == 0) {						
-				y++;							//0이면 y쪽으로 내려감 
+		for (int i = 0; i < ladder.length; i++) {
+			if (ladder[y][x] == 0) {
+				y++;
 			}
-			else if (ladder[y][x] == 1) {				//위에 else if 문이랑 같음 
-				if (x != 0 && ladder[y][x-1] == 1) {		 
-					x--;									//왼쪽끝
+			else if (ladder[y][x] == 1) {
+				if (x != 0 && ladder[y][x-1] == 1) {
+					x--;
 				}
-				else if(x != 4 && ladder[y][x+1] == 1) {	//오른쪽 끝 
+				else if(x != 4 && ladder[y][x+1] == 1) {
 					x++;
 				}
-				y++;	//else if 문 안에 
+				y++;
 			}
 		}
 		

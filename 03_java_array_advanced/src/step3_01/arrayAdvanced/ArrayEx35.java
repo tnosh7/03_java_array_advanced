@@ -27,27 +27,27 @@ public class ArrayEx35 {
 		Scanner scan = new Scanner(System.in);
 		
 		int[] arr = null;
-		int elementCnt = 0; //==0==
+		int elementCnt = 0;
 		
-		while (true) {
+		while (true) {	
 			
-			for (int i = 0; i < elementCnt; i++) {
-				System.out.print(arr[i] + " ");
+			for (int i = 0; i < elementCnt; i++) { 
+				System.out.print(arr[i] + " ");   
 			}
 			System.out.println();
 			
-			System.out.println("[어레이리스트 컨트롤러]");
+			System.out.println("[어레이리스트 컨트롤러]"); 
 			System.out.println("[1]추가");
 			System.out.println("[2]삭제(인덱스)");
 			System.out.println("[3]삭제(데이터)");
 			System.out.println("[4]삽입");
 			System.out.println("[0]종료");
 			
-			System.out.print("메뉴 선택 : ");
-			int sel = scan.nextInt();
+			System.out.print("메뉴 선택 : ");	
+			int sel = scan.nextInt();			
 			
-			if (sel == 1) {
-				if (elementCnt == 0) {
+			if (sel == 1) {				 
+				if (elementCnt == 0) {   
 					arr = new int[elementCnt + 1];
 				}
 				else if (elementCnt > 0){
@@ -63,8 +63,8 @@ public class ArrayEx35 {
 				System.out.print("[추가]데이터 입력 : ");
 				int data = scan.nextInt();
 				
-				arr[elementCnt] = data; //arr =추가데이터 
-				elementCnt++; // 하나씩 추가해야 차례대로.
+				arr[elementCnt] = data;
+				elementCnt++;
 			}
 			else if (sel == 2) {
 				System.out.print("[삭제]인덱스 입력 : ");

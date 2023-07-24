@@ -23,23 +23,23 @@ public class ArrayEx46_문제 {
 		int[][] meMark  = new int[maxNum][maxNum];
 		int[][] youMark = new int[maxNum][maxNum];
 
-		int[] temp = new int[maxNum*maxNum];		//25
+		int[] temp = new int[maxNum*maxNum];
 		
 		int win = 0;
 		int turn = 0;
 		int p1X = 0;	int p1Y = 0;
 		int p2X = 0;	int p2Y = 0;
 		
-		// me 셋팅												
-		for(int i = 0; i < temp.length; i++) {	//랜덤셋팅.. 똑같ㅇ.
+		// me 셋팅
+		for(int i = 0; i < temp.length; i++) {
 			temp[i] = ran.nextInt(size) + 1;
 			for(int j = 0; j < i; j++) {
-				if(temp[i] == temp[j]) {		
+				if(temp[i] == temp[j]) {
 					i--;
 				}
 			}
 		}
-		int k = 0;								//똑같
+		int k = 0;
 		for(int i = 0; i < maxNum; i++) {
 			for(int j = 0; j < maxNum; j++) {
 				me[i][j] = temp[k];
@@ -49,7 +49,7 @@ public class ArrayEx46_문제 {
 		
 		// you 셋팅
 		for(int i = 0; i < temp.length; i++) {
-			temp[i] = ran.nextInt(size) + 1;  //이미 했느뎅 또 하넹.
+			temp[i] = ran.nextInt(size) + 1;
 			for(int j = 0; j < i; j++) {
 				if(temp[i] == temp[j]) {
 					i--;
@@ -65,14 +65,14 @@ public class ArrayEx46_문제 {
 		}
 		
 		
-														//문제출력 
+		
 		while (true) {
 			
 			System.out.println("========= BINGO GAME[Me] =========");
-			for (int i = 0; i < maxNum; i++) {								
-				for (int j = 0; j < maxNum; j++) {											
-					if (meMark[i][j] == 0) 			System.out.print(me[i][j] + "\t");	
-					else if (meMark[i][j] == 1) 	System.out.print("O\t");	//똑같ㅇ
+			for (int i = 0; i < maxNum; i++) {
+				for (int j = 0; j < maxNum; j++) {
+					if (meMark[i][j] == 0) 			System.out.print(me[i][j] + "\t");
+					else if (meMark[i][j] == 1) 	System.out.print("O\t");
 				}
 				System.out.println();
 			}
@@ -89,7 +89,7 @@ public class ArrayEx46_문제 {
 			}
 			System.out.println();
 			
-			if (win == 1) {							//승리조건 출력 . 강
+			if (win == 1) {
 				System.out.println("Me 승리!");
 				break;
 			}
@@ -98,7 +98,7 @@ public class ArrayEx46_문제 {
 				break;
 			}
 			
-			if (turn % 2 == 0) {					// p1
+			if (turn % 2 == 0) {
 				
 				System.out.print("[Me]y좌표 입력 : ");
 				p1Y = scan.nextInt();
@@ -106,11 +106,11 @@ public class ArrayEx46_문제 {
 				
 				p1X = scan.nextInt();
 				
-				if (meMark[p1Y][p1X] == 0) {		//ㄴ에			
+				if (meMark[p1Y][p1X] == 0) {
 					meMark[p1Y][p1X] = 1;
 					turn++;
 					
-					for (int i = 0; i < maxNum; i++) {			//===---- 다름		
+					for (int i = 0; i < maxNum; i++) {
 						for (int j = 0; j < maxNum; j++) {
 							if (me[p1Y][p1X] == you[i][j]) {
 								if (youMark[i][j] == 0) {
@@ -123,7 +123,7 @@ public class ArrayEx46_문제 {
 				
 				
 			}
-			else if (turn % 2 == 1) {						//p2
+			else if (turn % 2 == 1) {
 				
 				System.out.print("[You]y좌표 입력 : ");
 				p2Y = scan.nextInt();
@@ -147,8 +147,8 @@ public class ArrayEx46_문제 {
 			}
 			 
 			// 승패결정 가로 체크
-			for (int i = 0; i < maxNum; i++) {					//가로가로빔ㅇ
-				int cnt = 0;							
+			for (int i = 0; i < maxNum; i++) {
+				int cnt = 0;
 				for (int j = 0; j < maxNum; j++) {
 					if (meMark[i][j] == 1) {
 						cnt++;
@@ -159,7 +159,7 @@ public class ArrayEx46_문제 {
 					break;
 				}
 			}
-			for (int i = 0; i < maxNum; i++) {					//그냥 p2늘어남
+			for (int i = 0; i < maxNum; i++) {
 				int cnt = 0;
 				for (int j = 0; j < maxNum; j++) {
 					if (youMark[i][j] == 1) {
@@ -173,7 +173,7 @@ public class ArrayEx46_문제 {
 			}	
 			
 			// 승패결정 세로 체크
-			for (int j = 0; j < maxNum; j++) {					//1.i->j 2. j->i
+			for (int j = 0; j < maxNum; j++) {
 				int cnt = 0;
 				for (int i = 0; i < maxNum; i++) {
 					if (meMark[i][j] == 1) {
@@ -200,7 +200,7 @@ public class ArrayEx46_문제 {
 			
 			// 승패결정 대각선 체크
 			int cnt = 0;
-			for (int i = 0; i < maxNum; i++) {				//여긴 break 적ㅇ므 .
+			for (int i = 0; i < maxNum; i++) {
 				if (meMark[i][i] == 1) {
 					cnt++;
 				}
@@ -221,7 +221,7 @@ public class ArrayEx46_문제 {
 			}
 			
 			// 승패결정 대각선 체크
-			cnt = 0;								
+			cnt = 0;
 			for (int i = 0; i < maxNum; i++) {
 				if (meMark[i][(maxNum-1)-i] == 1) {
 					cnt++;

@@ -2,13 +2,13 @@ package step3_01.arrayAdvanced;
 
 import java.util.Arrays;
 
-// 배열의 주소 
+// 배열의 주소
 public class ArrayEx34 {
 
 	public static void main(String[] args) {
-	
-		int nVar1 = 10 ;
-		int nVar2 = nVar1; // 값을 복사하여 대입 
+
+		int nVar1 = 10;
+		int nVar2 = nVar1; // 값을 복사하여 대입
 		
 		nVar1 = 777;
 		
@@ -17,23 +17,20 @@ public class ArrayEx34 {
 		System.out.println();
 		
 		int[] arr = {87, 100, 24, 11, 79};
-		int[] temp = arr; // 주소값을 대입 
+		int[] temp = arr; // 주소값을 대입
 		System.out.println("arr : " + arr);
 		System.out.println("temp : " + temp);
 		
-		arr[0] = 0; 
+		arr[0]  = 0;
 		temp[1] = 0;
-		arr[2] = 0;
+		arr[2]  = 0;
 		temp[3] = 0;
-		arr[4] = 0;
+		arr[4]  = 0;
 		
 		System.out.println("arr : " + Arrays.toString(arr));
 		System.out.println("temp : " + Arrays.toString(temp));
-		System.out.println();
-		
-		
 		
 		
 	}
-	
+
 }
